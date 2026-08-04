@@ -1,20 +1,15 @@
 name: "Suwayomi Server"
-version: "1.0.0"
+version: "1.1.0"
 slug: "suwayomi"
-description: "Suwayomi Server as a Home Assistant add-on without nginx"
-url: "https://github.com/TUOUSER/ha-addons/tree/main/suwayomi"
+description: "Suwayomi Server as a Home Assistant add-on with ingress proxy"
+url: "https://github.com/Th3ABombs/suwayomi-addon/tree/main/suwayomi"
 startup: application
 boot: auto
 init: false
 panel_icon: mdi:book-open-page-variant
-#ingress: true
-#ingress_port: 4567
-#ingress_stream: true
-ingress: false
-ports:
-  4567/tcp: 4567
-ports_description:
-  4567/tcp: "Suwayomi web interface"
+ingress: true
+ingress_port: 8099
+ingress_stream: true
 arch:
   - amd64
   - aarch64
@@ -24,7 +19,3 @@ options:
   tz: "Europe/Rome"
 schema:
   tz: str
-
-
-
-
