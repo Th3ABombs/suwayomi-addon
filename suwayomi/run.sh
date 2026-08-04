@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/bin/sh
 set -eu
 
 DATA_DIR="/data/Tachidesk"
