@@ -7,9 +7,14 @@ startup: application
 boot: auto
 init: false
 panel_icon: mdi:book-open-page-variant
-ingress: true
-ingress_port: 4567
-ingress_stream: true
+#ingress: true
+#ingress_port: 4567
+#ingress_stream: true
+ingress: false
+ports:
+  4567/tcp: 4567
+ports_description:
+  4567/tcp: "Suwayomi web interface"
 arch:
   - amd64
   - aarch64
@@ -19,3 +24,7 @@ options:
   tz: "Europe/Rome"
 schema:
   tz: str
+
+
+
+
