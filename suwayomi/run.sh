@@ -23,8 +23,10 @@ if [ -f "${OPTIONS_FILE}" ] && command -v jq >/dev/null 2>&1; then
 fi
 export TZ="${TZ_VALUE}"
 
-export BIND_IP="0.0.0.0"
+export BIND_IP="127.0.0.1"
 export BIND_PORT="4567"
+
+nginx
 
 if [ -x /home/suwayomi/startup_script.sh ]; then
   exec /home/suwayomi/startup_script.sh
