@@ -26,7 +26,8 @@ export TZ="${TZ_VALUE}"
 export BIND_IP="127.0.0.1"
 export BIND_PORT="4567"
 
-nginx
+nginx -t
+nginx -g 'daemon off;' &
 
 if [ -x /home/suwayomi/startup_script.sh ]; then
   exec /home/suwayomi/startup_script.sh
