@@ -1,0 +1,4 @@
+configuration:
+  tz:
+    name: Time zone
+    description: Time zone used by the Suwayomi container
