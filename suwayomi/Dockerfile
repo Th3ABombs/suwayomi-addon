@@ -12,6 +12,8 @@ RUN if command -v apk >/dev/null 2>&1; then \
 
 COPY run.sh /run.sh
 COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 
 RUN chmod +x /run.sh
 
