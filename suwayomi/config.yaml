@@ -17,6 +17,8 @@ ports:
 ports_description:
   4567/tcp: "Suwayomi Web UI"
 
+webui: "http://[HOST]:[PORT:4567]"
+
 options:
   tz: "Europe/Rome"
 
