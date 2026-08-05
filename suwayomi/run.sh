@@ -19,7 +19,7 @@ fi
 
 TZ_VALUE="Europe/Rome"
 if [ -f "${OPTIONS_FILE}" ] && command -v jq >/dev/null 2>&1; then
-  TZ_VALUE="$(jq -r '.tz // \"Europe/Rome\"' \"${OPTIONS_FILE}\")"
+  TZ_VALUE="$(jq -r '.tz // "Europe/Rome"' "${OPTIONS_FILE}")"
 fi
 export TZ="${TZ_VALUE}"
 
