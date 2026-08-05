@@ -19,18 +19,12 @@ fi
 
 TZ_VALUE="Europe/Rome"
 if [ -f "${OPTIONS_FILE}" ] && command -v jq >/dev/null 2>&1; then
-  TZ_VALUE="$(jq -r '.tz // "Europe/Rome"' "${OPTIONS_FILE}")"
+  TZ_VALUE="$(jq -r '.tz // \"Europe/Rome\"' \"${OPTIONS_FILE}\")"
 fi
 export TZ="${TZ_VALUE}"
 
-export BIND_IP="127.0.0.1"
+export BIND_IP="0.0.0.0"
 export BIND_PORT="4567"
-
-rm -f /etc/nginx/http.d/default.conf.default 2>/dev/null || true
-rm -f /etc/nginx/conf.d/default.conf.default 2>/dev/null || true
-
-nginx -t
-nginx
 
 if [ -x /home/suwayomi/startup_script.sh ]; then
   exec /home/suwayomi/startup_script.sh
