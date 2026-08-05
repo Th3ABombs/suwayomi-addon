@@ -2,11 +2,14 @@
 set -eu
 
 DATA_DIR="/data/Tachidesk"
+DOWNLOADS_DIR="/share/suwayomi/downloads"
 APP_HOME="/home/suwayomi/.local/share"
 APP_DATA="${APP_HOME}/Tachidesk"
+APP_DOWNLOADS="${APP_DATA}/downloads"
 OPTIONS_FILE="/data/options.json"
 
-mkdir -p "${DATA_DIR}/downloads"
+mkdir -p "${DATA_DIR}"
+mkdir -p "${DOWNLOADS_DIR}"
 mkdir -p "${APP_HOME}"
 
 if [ -e "${APP_DATA}" ] && [ ! -L "${APP_DATA}" ]; then
@@ -15,6 +18,14 @@ fi
 
 if [ ! -L "${APP_DATA}" ]; then
   ln -s "${DATA_DIR}" "${APP_DATA}"
+fi
+
+if [ -e "${APP_DOWNLOADS}" ] && [ ! -L "${APP_DOWNLOADS}" ]; then
+  rm -rf "${APP_DOWNLOADS}"
+fi
+
+if [ ! -L "${APP_DOWNLOADS}" ]; then
+  ln -s "${DOWNLOADS_DIR}" "${APP_DOWNLOADS}"
 fi
 
 TZ_VALUE="Europe/Rome"
